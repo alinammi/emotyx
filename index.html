@@ -7,18 +7,29 @@
     img {
         /*width: 25%;*/
         height: 10vh;
+        /*display: block;*/
+        margin-left: auto;
+        margin-right: auto;
     }
+
+    /*body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }*/
 
     h1 {
         font-size: 1vw;
+        text-align: center;
     }
 
     </style>
 </head>
 <body>
 <h1>Wie geht's Dir?</h1>
-<img src="glad.jpeg">
-<img src="sad.jpeg">
+<div style="display:flex;justify-content:center;align-items:center;">
+    <div><img src="glad.jpeg"><img src="sad.jpeg"></div>
+</div>
 </body>
 </html>
 
