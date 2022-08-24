@@ -11,15 +11,22 @@ def hello_world():
 
 @app.route("/setMood")
 def set_mood():
-    mood = request.args.get("mood")
+    mood = int(request.args.get("mood"))
     moods.append(mood)
-    return "<p>Stimmung gespeichert!</p>" + mood
+    return "<p>Stimmung gespeichert!</p>" + str(mood) + "<a href=\"/getMood\">get moods</a><a href=\"zurueck\"></a>"
 
 
 @app.route("/getMood")
 def get_mood():
     mood_string = ", ".join(str(mood) for mood in moods)
 
-    return "<p>Alle Stimmungen, die gespeichert wurden:<p>" + mood_string
+    avg = str(average_moods())
+
+    return "<p>Alle Stimmungen, die gespeichert wurden:<p>" + mood_string + ": Durchschnitt: " + avg + "<p><a href=\"/\">Home</a></p>"
 
 
+def average_moods() -> float | str:
+    if len(moods) == 0:
+        return 'sleeeer'
+
+    return sum(moods) / len(moods)
