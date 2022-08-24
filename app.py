@@ -1,10 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return render_template('index.html')
 @app.route("/setMood")
 def setMood():
-    return "<p>Stimmung gespeichert!</p>"
+
+    mood = request.args.get("mood")
+
+
+    return "<p>Stimmung gespeichert!</p>" + mood
