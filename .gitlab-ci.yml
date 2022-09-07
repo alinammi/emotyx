@@ -1,0 +1,6 @@
+---
+
+testing emotyx:
+  stage: test
+  script:
+    - echo hello world!
